@@ -2,8 +2,11 @@
   "name": "notion-react-starter",
   "version": "0.1.0",
   "dependencies": {
+    "@leap-ai/sdk": "0.0.112",
     "@neurosity/notion": "^5.3.0",
     "@reach/router": "^1.2.1",
+    "autoprefixer": "^10.4.13",
+    "axios": "^1.3.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "^3.4.3",
@@ -12,7 +15,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/global.css -o src/global.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,5 +32,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.2.7"
   }
 }
