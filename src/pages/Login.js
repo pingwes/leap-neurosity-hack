@@ -70,12 +70,19 @@ export function Login() {
 
   return (
     <main className="main-container">
+      <div className="main-message">
+        {/* <img 
+          className="mona_lisa"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg " /> */}
+        Create Art with your mind
+      </div>
       <LoginForm
         onLogin={onLogin}
         error={error}
         loading={isLoggingIn}
         footerComponent={<Footer />}
       />
+    
     </main>
   );
 }

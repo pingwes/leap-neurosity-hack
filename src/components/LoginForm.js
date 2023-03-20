@@ -16,7 +16,12 @@ export function LoginForm({
 
   return (
     <form className="card login-form" onSubmit={onSubmit}>
-      <h3 className="card-heading">Login</h3>
+      
+      <img 
+        className="logo"
+        src = "https://leap-hack.s3.amazonaws.com/logo2-copy.png" />
+
+
       {!!error ? <h4 className="card-error">{error}</h4> : null}
       <div className="row">
         <label>Email</label>

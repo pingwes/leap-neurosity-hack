@@ -9,10 +9,10 @@ const basePrompt = " "
 
 
 function generateImage(modelId, prompt) {
-  const apiUrl = `https://api.leapml.dev/api/v1/images/models/${modelId}/inferences`;
+  const apiUrl = `https://api.leapml.dev/api/v1/images/models/7d4c7bc2-8378-4300-a566-8aac067db550/inferences`;
 
   const payload = {
-    prompt: prompt,
+    prompt: "vera flowers blue white",
     steps: 50,
     width: 512,
     height: 512,
@@ -158,7 +158,7 @@ export function Focus() {
 
     generateImage(modelId, prompt)
       .then((response) => {
-        const intervalId = setInterval(() =>pollEndpoint( modelId, response.data.id ), 3000); 
+        const intervalId = setInterval(() =>pollEndpoint( "7d4c7bc2-8378-4300-a566-8aac067db550", response.data.id ), 3000); 
         setIntervalId(intervalId)
         return () => clearInterval(intervalId);
         // fetchData(modelId, response.data.id, );
@@ -205,17 +205,30 @@ export function Focus() {
       });
   }
 
+  function goToLogout() {
+    navigate("/logout");
+  }
+
 
   return (
     <div className="grid place-content-center w-full h-screen">
       {
         state === "awaiting" && (
-          <div className="border-2 border-indigo-600"> 
-          <button
-            className="text-white border-4 bg-white"
-            onClick={start}>
-            Click here to start
-          </button>
+          <div className="container">
+            <img className="w-48 mona_lisa"
+              src="https://leap-hack.s3.amazonaws.com/mona_lisa.png" />
+            <div className="border-2 border-indigo-600 w-48"> 
+            <button
+              className="card-btn start"
+              onClick={start}>
+              Start Creating
+            </button>
+            </div>
+            <button 
+              className="logout"
+              onClick={goToLogout}>
+              Logout
+            </button>
           </div>
         )
       }
@@ -234,7 +247,7 @@ export function Focus() {
       {
         (currentImageIndex === art.length) && (!imageData) &&(
           
-          <div>
+          <div className='message'>
             Generating...
           </div>
           
@@ -246,7 +259,6 @@ export function Focus() {
           <img src={imageData.images[0].uri} alt="Generated Image" />
         </div>
       )}
-      
     </div>
   );
 }
