@@ -7,6 +7,7 @@ import { Loading } from "./components/Loading";
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
 import { Focus } from "./pages/Focus";
+import { Brainwaves } from "./pages/Brainwaves";
 
 
 import { useNotion } from "./services/notion";
@@ -35,6 +36,7 @@ function Routes() {
   return (
     <Router>
       <Focus path="/" />
+      <Brainwaves path="/brainwaves" />
       <Devices path="/devices" />
       <Login path="/login" />
       <Logout path="/logout" />

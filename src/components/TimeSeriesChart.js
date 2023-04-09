@@ -4,7 +4,7 @@ import { SmoothieChart, TimeSeries } from "smoothie";
 
 const defaultChannelStyle = {
   position: "relative",
-  width: "100%",
+  width: "1700px",
   height: "60px"
 };
 
@@ -192,7 +192,7 @@ function getChannelNameStyles(color) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "white",
+    background: "black",
     left: 0,
     top: 0
   };

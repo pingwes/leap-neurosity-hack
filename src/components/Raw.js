@@ -3,10 +3,10 @@ import { skip } from "rxjs/operators";
 import Switch from "react-switch";
 import styled from "styled-components";
 
-import { notion } from "../../../services/notion";
-import { useNotion } from "../../../services/useNotion";
-import { usePausableObservable } from "../../../services/metrics";
-import { getChannelColor } from "../../../services/channels";
+import { notion } from "../services/notion";
+import { useNotion } from "../services/useNotion";
+import { usePausableObservable } from "../services/metrics";
+import { getChannelColor } from "../services/channels";
 import { TimeSeriesChart } from "./TimeSeriesChart";
 
 const Navigation = styled.nav`
@@ -33,8 +33,10 @@ export function Raw() {
   } = useNotion();
   const { sleepMode } = deviceStatus || {};
   const [status, setStatus] = useState("ready");
+
   // neurosity manufacturers are interested in seeing the signal without scaling
   // so they can better assess any noise while conducting signal quality tests
+
   const [autoScale, setAutoScale] = useState(
     !userClaims?.neurosityManufacturer
   );
@@ -43,6 +45,22 @@ export function Raw() {
     status,
     error: (error) => console.error(error)
   });
+
+  const [data, setData] = useState([]);
+
+
+  useEffect(() => {
+    // Fetch the log file and parse the JSON data
+    fetch("../../data/1679357234.log")
+      .then(response => response.text())
+      .then(text => text.trim().split('\n').map(JSON.parse))
+      .then(setData)
+      .catch(console.error);
+  }, []);
+
+  console.log("data: " + JSON.stringify(data))
+
+  console.log("epoch: " + JSON.stringify(epoch))
 
   useEffect(() => {
     if (sleepMode) {
@@ -72,8 +90,8 @@ export function Raw() {
             plotDelay={1000}
             isPlotting={status === "started"}
             autoScale={autoScale}
-            timesyncOffset={notion.getTimesyncOffset()}
-          />
+            // timesyncOffset={notion.getTimesyncOffset()}
+          /> 
         </div>
       )}
       <div className="card-footer">

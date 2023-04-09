@@ -423,7 +423,7 @@ video {
  
 body {
   margin: 0;
-  background-color: #000c14;
+  background-color: #000000;
   height: 100vh;
   font-size: 19px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -502,7 +502,7 @@ select {
  */
 
 .card {
-  background: #000c14;
+  background: #000000;
   color: rgb(147, 147, 147);
   display: flex;
   flex-direction: column;
@@ -521,7 +521,7 @@ select {
 
 .card-btn {
   background: rgb(113, 211, 211);
-  color: #000c14;
+  color: #000000;
   border: none;
   padding: 8px 20px;
   border-radius: 4px;
@@ -539,7 +539,7 @@ select {
 
 .card-footer {
   color: darkslategray;
-  margin-top: 20px;
+  margin-top: 400px;
   text-align: center;
 }
 

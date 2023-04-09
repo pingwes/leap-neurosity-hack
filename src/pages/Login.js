@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { navigate } from "@reach/router";
 import useEffectOnce from "react-use/lib/useEffectOnce";
-
 import { LoginForm } from "../components/LoginForm";
 import { Footer } from "../components/Footer";
-
 import { notion, useNotion } from "../services/notion";
 
 export function Login() {
@@ -71,9 +69,6 @@ export function Login() {
   return (
     <main className="main-container">
       <div className="main-message">
-        {/* <img 
-          className="mona_lisa"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg " /> */}
         Create Art with your mind
       </div>
       <LoginForm
@@ -82,7 +77,6 @@ export function Login() {
         loading={isLoggingIn}
         footerComponent={<Footer />}
       />
-    
     </main>
   );
 }

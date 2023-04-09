@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Raw } from "../components/notion/Brainwaves/Raw";
+import { Raw } from "../components/Raw";
 
 export function Brainwaves() {
   return (
